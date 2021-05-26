@@ -19,6 +19,14 @@ export class App extends Component {
     this.setState({ light: e.target.value })
   }
 
+  handleNewState = e => {
+    this.setState({
+      hue: Math.floor(Math.random() * 360 + 1),
+      sat: Math.floor(Math.random() * 100 + 1),
+      light: Math.floor(Math.random() * 100 + 1),
+    })
+  }
+
   render() {
     const newBG = `hsl(${this.state.hue}, ${this.state.sat}%, ${this.state.light}%)`
     const newStyle = { backgroundColor: newBG }
@@ -64,6 +72,9 @@ export class App extends Component {
           <input type="range" min="1" max="100" id="A" />
           <label htmlFor="H">A</label>
         </div>
+        <button type="button" onClick={this.handleNewState}>
+          Randomize!
+        </button>
       </div>
     )
   }
