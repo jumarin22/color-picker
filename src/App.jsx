@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 
 export class App extends Component {
   state = {
-    hue: 180,
-    sat: 50,
-    light: 50,
+    hue: Math.floor(Math.random() * 360 + 1),
+    sat: Math.floor(Math.random() * 100 + 1),
+    light: Math.floor(Math.random() * 100 + 1),
   }
 
   updateHue = e => {
