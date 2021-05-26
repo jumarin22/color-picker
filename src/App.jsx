@@ -34,7 +34,7 @@ export class App extends Component {
   }
 
   render() {
-    const newBackgroundColor = `hsl(${this.state.hue}, ${this.state.sat}%, ${this.state.light}%, ${this.state.alpha}%)`
+    const newBackgroundColor = `hsla(${this.state.hue}, ${this.state.sat}%, ${this.state.light}%, ${this.state.alpha}%)`
     const newStyle = { backgroundColor: newBackgroundColor }
     return (
       <>

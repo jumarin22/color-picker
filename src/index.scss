@@ -20,6 +20,11 @@ div {
   text-align: center;
 }
 
+h1 {
+  color: black;
+  text-shadow: lightgray 0.05rem 0.05rem;
+}
+
 article {
   margin: auto;
   border: black thick solid;
@@ -61,4 +66,11 @@ article {
 
 label {
   margin-left: 1rem;
+  font-weight: bold;
+  color: black;
+  text-shadow: lightgray 0.05rem 0.05rem;
+}
+button {
+  box-shadow: black 0.05rem 0.05rem;
+  color: black;
 }
