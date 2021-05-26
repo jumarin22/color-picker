@@ -26,6 +26,7 @@ export class App extends Component {
       <div>
         <h1>Color Picker</h1>
         <div className="colorBox" style={newStyle}></div>
+        <p>{newBG}</p>
         <div id="hSlider">
           <input
             type="range"
