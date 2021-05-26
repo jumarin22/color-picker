@@ -26,9 +26,9 @@ export class App extends Component {
 
   handleNewState = e => {
     this.setState({
-      hue: Math.floor(Math.random() * 360 + 1),
-      sat: Math.floor(Math.random() * 100 + 1),
-      light: Math.floor(Math.random() * 100 + 1),
+      hue: Math.floor(Math.random() * 360),
+      sat: Math.floor(Math.random() * 100),
+      light: Math.floor(Math.random() * 100),
       alpha: Math.floor(Math.random() * 100),
     })
   }
