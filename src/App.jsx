@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 
 export class App extends Component {
   state = {
-    hue: Math.floor(Math.random() * 360 + 1),
-    sat: Math.floor(Math.random() * 100 + 1),
-    light: Math.floor(Math.random() * 100 + 1),
+    hue: Math.floor(Math.random() * 360),
+    sat: Math.floor(Math.random() * 100),
+    light: Math.floor(Math.random() * 100),
   }
 
   updateHue = e => {
@@ -31,14 +31,14 @@ export class App extends Component {
     const newBackgroundColor = `hsl(${this.state.hue}, ${this.state.sat}%, ${this.state.light}%)`
     const newStyle = { backgroundColor: newBackgroundColor }
     return (
-      <div>
+      <>
         <h1>Color Picker</h1>
         <div className="colorBox" style={newStyle}></div>
         <p>{newBackgroundColor}</p>
         <div id="hSlider">
           <input
             type="range"
-            min="1"
+            min="0"
             max="360"
             value={this.state.hue}
             onChange={this.updateHue}
@@ -48,7 +48,7 @@ export class App extends Component {
         <div className="sSlider">
           <input
             type="range"
-            min="1"
+            min="0"
             max="100"
             value={this.state.sat}
             onChange={this.updateSat}
@@ -58,7 +58,7 @@ export class App extends Component {
         <div className="lSlider">
           <input
             type="range"
-            min="1"
+            min="0"
             max="100"
             value={this.state.light}
             onChange={this.updateLight}
@@ -66,13 +66,13 @@ export class App extends Component {
           <label>L</label>
         </div>
         <div className="aSlider">
-          <input type="range" min="1" max="100" />
+          <input type="range" min="0" max="100" />
           <label>A</label>
         </div>
         <button type="button" onClick={this.handleNewState}>
           Randomize!
         </button>
-      </div>
+      </>
     )
   }
 }
