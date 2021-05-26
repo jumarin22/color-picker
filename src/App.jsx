@@ -5,6 +5,7 @@ export class App extends Component {
     hue: Math.floor(Math.random() * 360),
     sat: Math.floor(Math.random() * 100),
     light: Math.floor(Math.random() * 100),
+    alpha: Math.floor(Math.random() * 100),
   }
 
   updateHue = e => {
@@ -19,23 +20,33 @@ export class App extends Component {
     this.setState({ light: e.target.value })
   }
 
+  updateAlpha = e => {
+    this.setState({ alpha: e.target.value })
+  }
+
   handleNewState = e => {
     this.setState({
       hue: Math.floor(Math.random() * 360 + 1),
       sat: Math.floor(Math.random() * 100 + 1),
       light: Math.floor(Math.random() * 100 + 1),
+      alpha: Math.floor(Math.random() * 100),
     })
   }
 
   render() {
-    const newBackgroundColor = `hsl(${this.state.hue}, ${this.state.sat}%, ${this.state.light}%)`
+    const newBackgroundColor = `hsl(${this.state.hue}, ${this.state.sat}%, ${this.state.light}%, ${this.state.alpha}%)`
     const newStyle = { backgroundColor: newBackgroundColor }
     return (
       <>
         <h1>Color Picker</h1>
-        <div className="colorBox" style={newStyle}></div>
+        <article>
+          <div className="underBox">&nbsp;</div>
+          <div className="colorBox" style={newStyle}>
+            &nbsp;
+          </div>
+        </article>
         <p>{newBackgroundColor}</p>
-        <div id="hSlider">
+        <div className="slider">
           <input
             type="range"
             min="0"
@@ -45,7 +56,7 @@ export class App extends Component {
           />
           <label>H</label>
         </div>
-        <div className="sSlider">
+        <div className="slider">
           <input
             type="range"
             min="0"
@@ -55,7 +66,7 @@ export class App extends Component {
           />
           <label>S</label>
         </div>
-        <div className="lSlider">
+        <div className="slider">
           <input
             type="range"
             min="0"
@@ -65,8 +76,14 @@ export class App extends Component {
           />
           <label>L</label>
         </div>
-        <div className="aSlider">
-          <input type="range" min="0" max="100" />
+        <div className="slider">
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={this.state.alpha}
+            onChange={this.updateAlpha}
+          />
           <label>A</label>
         </div>
         <button type="button" onClick={this.handleNewState}>
